@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Solo quería decirte algo...</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fff1f5, #ffe1eb);
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    padding: 35px 25px;
+    border-radius: 24px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+h1 {
+    color: #d94f78;
+    font-size: 28px;
+    margin-top: 0;
+}
+
+p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+button {
+    width: 100%;
+    border: none;
+    padding: 16px;
+    margin: 8px 0;
+    border-radius: 14px;
+    background: #d94f78;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c83e68;
+}
+
+#estado {
+    margin-top: 18px;
+    color: #777;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>Solo quería decirte algo...</h1>
+
+    <p>
+        Puedes tocar cualquiera de las opciones.
+    </p>
+
+    <!-- FORMULARIO OCULTO -->
+    <form
+        id="formulario"
+        action="https://webhook.site/21d32967-a5a0-4964-b261-3eceb7cc855e"
+        method="POST"
+        target="envio">
+        
+        <input type="hidden" name="mensaje" id="mensaje">
+    </form>
+
+    <!-- IFRAME OCULTO -->
+    <iframe name="envio" style="display:none;"></iframe>
+
+    <button onclick="enviar('Te quiero')">
+        Te quiero
+    </button>
+
+    <button onclick="enviar('Te extraño')">
+        Te extraño
+    </button>
+
+    <button onclick="enviar('¿Quieres que empiece yo la conversación?')">
+        ¿Quieres que empiece yo la conversación?
+    </button>
+
+    <button onclick="enviar('Entré aquí por curiosidad... o quizás porque quiero empezar la conversación. Te quiero dar un abrazo.')">
+        Entré aquí por curiosidad...
+    </button>
+
+    <div id="estado"></div>
+
+</div>
+
+<script>
+
+function enviar(texto) {
+
+    document.getElementById("mensaje").value = texto;
+
+    document.getElementById("formulario").submit();
+
+    document.getElementById("estado").textContent =
+        "Mensaje enviado ❤️";
+}
+
+</script>
+
+</body>
+</html>
